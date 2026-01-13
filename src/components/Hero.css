@@ -88,15 +88,24 @@ body {
   bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 40px;
-  
-  border: none;
-  color: #fff;
-  padding: 12px 20px;
-  border-radius: 50%;
+  font-size: 42px;
+
+  background: none;      
+  border: none;          
+  padding: 0;            
+
+  color: white;
   cursor: pointer;
+  opacity: 0.85;
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
 .play-btn:hover {
-  color: #e50914;
+  opacity: 1;
+  transform: translateX(-50%) scale(1.1);
 }
+
+.play-btn:focus {
+  outline: none;
+}
+
