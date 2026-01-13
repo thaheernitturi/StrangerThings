@@ -8,15 +8,28 @@ const Hero = () => {
   ];
 
   const [index, setIndex] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef(null);
 
   
   useEffect(() => {
     if (videoRef.current) {
+      videoRef.current.pause();
       videoRef.current.load();
-      videoRef.current.play();
+      setIsPlaying(false);
     }
   }, [index]);
+
+  const togglePlay = () => {
+    if (!videoRef.current) return;
+
+    if (isPlaying) {
+      videoRef.current.pause();
+    } else {
+      videoRef.current.play();
+    }
+    setIsPlaying(!isPlaying);
+  };
 
   const next = () => {
     setIndex((i) => (i + 1) % videos.length);
@@ -28,20 +41,30 @@ const Hero = () => {
 
   return (
     <div className="hero">
-      <button className="nav-btn left" onClick={prev}>❮</button>
+     
+      <button className="nav-btn left" onClick={prev}>
+        ❮
+      </button>
 
+      
       <video
         ref={videoRef}
         src={videos[index]}
         className="hero-video"
-        autoPlay
-        loop                
         playsInline
         preload="auto"
         controls={false}
       />
 
-      <button className="nav-btn right" onClick={next}>❯</button>
+    
+      <button className="play-btn" onClick={togglePlay}>
+        {isPlaying ? "⏸" : "▶"}
+      </button>
+
+      
+      <button className="nav-btn right" onClick={next}>
+        ❯
+      </button>
     </div>
   );
 };
