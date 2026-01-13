@@ -6,13 +6,13 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="Navbar">
+    <div className="Navbar">
       <div className="nav-logo">
-        <img src="/logo.png" alt="logo" />
+        <img src="/images/logo.png" alt="logo" />
       </div>
 
       <div className="nav-middle">
-        <h1 className="stranger-text">Stranger Things</h1>
+        <h2 className="stranger-text">I BELIEVE</h2>
       </div>
 
       <div className="menu-dots" onClick={() => setOpen(!open)}>
@@ -20,12 +20,11 @@ const Navbar = () => {
       </div>
 
       <ul className={`Navlinks ${open ? "open" : ""}`}>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/characters">Characters</Link></li>
-        <li><Link to="/episodes">Episodes</Link></li>
-        <li><Link to="/story">Story</Link></li>
+        <li><Link to="/" onClick={() => setOpen(false)}>Home</Link></li>
+        <li><Link to="/Episodes" onClick={() => setOpen(false)}>Episodes</Link></li>
+        <li><Link to="/ending" onClick={() => setOpen(false)}>Final Ending</Link></li>
       </ul>
-    </nav>
+    </div>
   );
 };
 
