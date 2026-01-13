@@ -46,36 +46,13 @@
   gap: 20px;
   margin: 0;
   padding: 0;
-  white-space: nowrap;
 }
 
 .Navlinks li {
   color: #fff;
   font-size: 16px;
-  font-weight: 500;
   cursor: pointer;
   position: relative;
-  padding: 5px 0;
-  transition: color 0.3s ease;
-}
-
-.Navlinks li::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -2px;
-  width: 0%;
-  height: 2px;
-  background-color: #e50914;
-  transition: width 0.3s ease;
-}
-
-.Navlinks li:hover {
-  color: #e50914;
-}
-
-.Navlinks li:hover::after {
-  width: 100%;
 }
 
 .Navlinks a {
@@ -83,8 +60,30 @@
   color: inherit;
 }
 
-.Navlinks a:hover {
+.Navlinks li:hover {
   color: #e50914;
+}
+
+.Navlinks li::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: #e50914;
+  transition: width 0.3s ease;
+}
+
+.Navlinks li:hover::after {
+  width: 100%;
+}
+
+.menu-dots {
+  display: none;
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
 }
 
 @keyframes glow {
@@ -93,44 +92,24 @@
   100% { text-shadow: 0 0 5px rgba(229,9,20,0.5); }
 }
 
-@media (max-width: 900px) {
-  .Navbar {
-    padding: 0 20px;
-    height: 65px;
-  }
-
-  .stranger-text {
-    font-size: 18px;
-    letter-spacing: 2px;
-  }
-
-  .Navlinks {
-    gap: 14px;
-  }
-}
-
 @media (max-width: 600px) {
-  .Navbar {
-    height: 60px;
-  }
-
-  .nav-logo img {
-    height: 38px;
+  .menu-dots {
+    display: block;
   }
 
   .Navlinks {
     position: absolute;
-    top: 60px;
-    right: 0;
-    width: 100%;
+    top: 65px;
+    right: 12px;
+    width: 180px;
     background: #0f0f0f;
     flex-direction: column;
-    align-items: center;
-    gap: 18px;
-    padding: 20px 0;
+    align-items: flex-start;
+    border-radius: 6px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.7);
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.4s ease;
+    transition: max-height 0.3s ease;
   }
 
   .Navlinks.open {
@@ -138,16 +117,15 @@
   }
 
   .Navlinks li {
-    font-size: 18px;
+    width: 100%;
+    padding: 12px 18px;
   }
 
-  .nav-middle {
-    left: 50%;
-    transform: translateX(-50%);
+  .Navlinks li::after {
+    display: none;
   }
 
-  .stranger-text {
-    font-size: 16px;
-    letter-spacing: 1.5px;
+  .Navlinks li:hover {
+    background: rgba(229,9,20,0.15);
   }
 }
