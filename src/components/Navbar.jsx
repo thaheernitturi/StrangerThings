@@ -1,26 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 
 const Navbar = () => {
+  const [open, setOpen] = useState(false);
+
   return (
-    <div className="Navbar">
+    <nav className="Navbar">
       <div className="nav-logo">
-        <img src="/images/logo.png" alt="logo" />
+        <img src="/logo.png" alt="logo" />
       </div>
 
       <div className="nav-middle">
-        <h2 className="stranger-text">I BELIEVE</h2>
+        <h1 className="stranger-text">Stranger Things</h1>
       </div>
 
-      <ul className="Navlinks">
-  <li><Link to="/">Home</Link></li>
-  <li><Link to="/Episodes">Episodes</Link></li>
-  <li><Link to="/ending">Final Ending</Link></li>
-  
-</ul>
+      <div className="menu-dots" onClick={() => setOpen(!open)}>
+        ⋮
+      </div>
 
-    </div>
+      <ul className={`Navlinks ${open ? "open" : ""}`}>
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/characters">Characters</Link></li>
+        <li><Link to="/episodes">Episodes</Link></li>
+        <li><Link to="/story">Story</Link></li>
+      </ul>
+    </nav>
   );
 };
 
