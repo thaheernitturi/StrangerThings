@@ -35,14 +35,11 @@
     0 0 15px rgba(229, 9, 20, 0.6),
     0 0 30px rgba(229, 9, 20, 0.4);
   margin: 0;
-  pointer-events: none;
-  animation: glow 3s infinite ease-in-out;
 }
 
 .Navlinks {
   list-style: none;
   display: flex;
-  align-items: center;
   gap: 20px;
   margin: 0;
   padding: 0;
@@ -51,8 +48,6 @@
 .Navlinks li {
   color: #fff;
   font-size: 16px;
-  cursor: pointer;
-  position: relative;
 }
 
 .Navlinks a {
@@ -64,32 +59,11 @@
   color: #e50914;
 }
 
-.Navlinks li::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 0%;
-  height: 2px;
-  background: #e50914;
-  transition: width 0.3s ease;
-}
-
-.Navlinks li:hover::after {
-  width: 100%;
-}
-
 .menu-dots {
   display: none;
   font-size: 28px;
   color: white;
   cursor: pointer;
-}
-
-@keyframes glow {
-  0% { text-shadow: 0 0 5px rgba(229,9,20,0.5); }
-  50% { text-shadow: 0 0 20px rgba(229,9,20,0.9); }
-  100% { text-shadow: 0 0 5px rgba(229,9,20,0.5); }
 }
 
 @media (max-width: 600px) {
@@ -113,16 +87,12 @@
   }
 
   .Navlinks.open {
-    max-height: 300px;
+    max-height: 250px;
   }
 
   .Navlinks li {
     width: 100%;
     padding: 12px 18px;
-  }
-
-  .Navlinks li::after {
-    display: none;
   }
 
   .Navlinks li:hover {
