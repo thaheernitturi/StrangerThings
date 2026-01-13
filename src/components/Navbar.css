@@ -17,30 +17,27 @@
   height: 45px;
   cursor: pointer;
 }
-/* Center container */
+
 .nav-middle {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
 }
 
-/* Stranger Things style text */
 .stranger-text {
   font-family: 'Benguiat', 'Times New Roman', serif;
   font-size: 22px;
   letter-spacing: 3px;
   color: #e50914;
   text-transform: uppercase;
-
   text-shadow:
     0 0 5px rgba(229, 9, 20, 0.8),
     0 0 15px rgba(229, 9, 20, 0.6),
     0 0 30px rgba(229, 9, 20, 0.4);
-
   margin: 0;
-  pointer-events: none; /* keeps navbar clicks clean */
+  pointer-events: none;
+  animation: glow 3s infinite ease-in-out;
 }
-
 
 .Navlinks {
   list-style: none;
@@ -81,26 +78,21 @@
   width: 100%;
 }
 
+.Navlinks a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.Navlinks a:hover {
+  color: #e50914;
+}
+
 @keyframes glow {
   0% { text-shadow: 0 0 5px rgba(229,9,20,0.5); }
   50% { text-shadow: 0 0 20px rgba(229,9,20,0.9); }
   100% { text-shadow: 0 0 5px rgba(229,9,20,0.5); }
 }
 
-.stranger-text {
-  animation: glow 3s infinite ease-in-out;
-}
-
-.Navlinks a {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* =========================
-   MOBILE RESPONSIVE NAVBAR
-   ========================= */
-
-/* Tablet & below */
 @media (max-width: 900px) {
   .Navbar {
     padding: 0 20px;
@@ -117,7 +109,6 @@
   }
 }
 
-/* Mobile */
 @media (max-width: 600px) {
   .Navbar {
     height: 60px;
@@ -127,7 +118,6 @@
     height: 38px;
   }
 
-  /* Hide desktop links */
   .Navlinks {
     position: absolute;
     top: 60px;
@@ -138,12 +128,10 @@
     align-items: center;
     gap: 18px;
     padding: 20px 0;
-
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.4s ease;
   }
-
 
   .Navlinks.open {
     max-height: 300px;
@@ -162,9 +150,4 @@
     font-size: 16px;
     letter-spacing: 1.5px;
   }
-}
-
-
-.Navlinks a:hover {
-  color: #e50914;
 }
