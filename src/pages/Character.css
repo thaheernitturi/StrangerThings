@@ -1,0 +1,228 @@
+/* ===================== GLOBAL ===================== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #000;
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  overflow-x: hidden;
+}
+
+/* ===================== CONTAINER ===================== */
+.characters-container {
+  padding: 140px 8%;
+  display: flex;
+  flex-direction: column;
+  gap: 200px;
+  background: radial-gradient(circle at top, #0b0000, #000);
+}
+
+/* ===================== BLOCK ===================== */
+.character-block {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===================== CHARACTER CARD ===================== */
+.character-card {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+}
+
+/* RIGHT / LEFT LOGIC */
+.character-block.right .character-card {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+.character-block.left .character-card {
+  flex-direction: row;
+  text-align: left;
+}
+
+/* ===================== IMAGE SIZE (SAME FOR ALL) ===================== */
+.char-image-box {
+  width: 300px;
+  height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.char-image-box img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: grayscale(45%) contrast(130%);
+}
+
+/* ===================== TEXT ===================== */
+.character-text h1 {
+  font-size: 3.2rem;
+  color: #b30000;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+.character-text p {
+  max-width: 480px;
+  margin-top: 12px;
+  line-height: 1.7;
+  color: #bbb;
+}
+
+/* ===================== FOOTSTEPS ===================== */
+.footsteps-wrapper {
+  margin-top: 36px;
+  display: flex;
+  gap: 14px;
+  width: fit-content;
+}
+
+/* Position footsteps according to character side */
+.character-block.right .footsteps-wrapper {
+  margin-left: auto;
+}
+
+.character-block.left .footsteps-wrapper {
+  margin-right: auto;
+}
+
+/* STEP */
+.step {
+  opacity: 0;
+}
+
+/* FOOTSTEP IMAGE */
+.step img {
+  width: 46px;
+  filter: drop-shadow(0 0 8px rgba(150, 0, 0, 0.5));
+}
+
+/* ===================== JUMP ANIMATION ===================== */
+.jump-step {
+  animation: jump 3.5s infinite ease-in-out;
+}
+
+@keyframes jump {
+  0% {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  25% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+
+  75% {
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===================== MOBILE ===================== */
+@media (max-width: 768px) {
+  .characters-container {
+    padding: 100px 6%;
+    gap: 140px;
+  }
+
+  .character-card {
+    flex-direction: column !important;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .char-image-box {
+    width: 220px;
+    height: 320px;
+  }
+
+  .character-text h1 {
+    font-size: 2.4rem;
+  }
+
+  .footsteps-wrapper {
+    margin: 28px auto 0;
+  }
+}
+.vhs-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.03) 0px,
+      rgba(255, 255, 255, 0.03) 1px,
+      transparent 2px,
+      transparent 4px
+    ),
+    radial-gradient(
+      ellipse at center,
+      rgba(255,255,255,0.04),
+      transparent 70%
+    );
+  animation: vhsJitter 0.2s infinite;
+}
+
+@keyframes vhsJitter {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-1px); }
+  100% { transform: translateY(0); }
+}
+
+.scroll-line {
+  position: fixed;
+  left: 24px;
+  top: 80px;
+  bottom: 80px;
+  width: 4px;
+  border-left: 2px dotted rgba(180, 0, 0, 0.4);
+  z-index: 50;
+}
+
+
+.scroll-line span {
+  position: absolute;
+  left: -1px;
+  bottom: 0;
+  width: 2px;
+  background: repeating-linear-gradient(
+    to bottom,
+    #b30000,
+    #b30000 6px,
+    transparent 6px,
+    transparent 12px
+  );
+  box-shadow: 0 0 10px rgba(180, 0, 0, 0.8);
+  transition: height 0.15s ease-out;
+}
+@media (max-width: 768px) {
+  .scroll-line {
+    display: none;
+  }
+}
+.char-name {
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.char-name:hover {
+  color: red;
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.6);
+}

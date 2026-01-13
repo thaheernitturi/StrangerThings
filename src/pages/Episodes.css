@@ -1,0 +1,60 @@
+.episodes-page {
+  padding: 80px 10%;
+  color: #eee;
+}
+
+.episodes-title {
+  text-align: center;
+  font-size: 32px;
+  color: red;
+  letter-spacing: 2px;
+  margin-bottom: 50px;
+}
+
+.episodes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.episode-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #0b0b0b;
+  border-left: 4px solid red;
+  padding: 20px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.episode-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+}
+
+.episode-rank {
+  font-size: 32px;
+  color: red;
+  width: 60px;
+}
+
+.episode-info {
+  flex: 1;
+  padding: 0 20px;
+}
+
+.episode-meta {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.episode-desc {
+  font-size: 14px;
+  margin-top: 6px;
+}
+
+.episode-rating {
+  font-size: 20px;
+  color: gold;
+}
