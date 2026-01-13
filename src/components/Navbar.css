@@ -16,6 +16,7 @@
 .nav-logo img {
   height: 45px;
   cursor: pointer;
+  transition: height 0.3s ease;
 }
 
 .nav-middle {
@@ -35,6 +36,7 @@
     0 0 15px rgba(229, 9, 20, 0.6),
     0 0 30px rgba(229, 9, 20, 0.4);
   margin: 0;
+  transition: font-size 0.3s ease, letter-spacing 0.3s ease;
 }
 
 .Navlinks {
@@ -66,14 +68,39 @@
   cursor: pointer;
 }
 
+@media (max-width: 900px) {
+  .nav-logo img {
+    height: 40px;
+  }
+
+  .stranger-text {
+    font-size: 18px;
+    letter-spacing: 2px;
+  }
+}
+
 @media (max-width: 600px) {
+  .Navbar {
+    height: 60px;
+    padding: 0 16px;
+  }
+
+  .nav-logo img {
+    height: 34px;
+  }
+
+  .stranger-text {
+    font-size: 15px;
+    letter-spacing: 1.5px;
+  }
+
   .menu-dots {
     display: block;
   }
 
   .Navlinks {
     position: absolute;
-    top: 65px;
+    top: 60px;
     right: 12px;
     width: 180px;
     background: #0f0f0f;
