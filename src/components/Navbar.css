@@ -96,6 +96,75 @@
   color: inherit;
 }
 
+/* =========================
+   MOBILE RESPONSIVE NAVBAR
+   ========================= */
+
+/* Tablet & below */
+@media (max-width: 900px) {
+  .Navbar {
+    padding: 0 20px;
+    height: 65px;
+  }
+
+  .stranger-text {
+    font-size: 18px;
+    letter-spacing: 2px;
+  }
+
+  .Navlinks {
+    gap: 14px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .Navbar {
+    height: 60px;
+  }
+
+  .nav-logo img {
+    height: 38px;
+  }
+
+  /* Hide desktop links */
+  .Navlinks {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    background: #0f0f0f;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    padding: 20px 0;
+
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+
+
+  .Navlinks.open {
+    max-height: 300px;
+  }
+
+  .Navlinks li {
+    font-size: 18px;
+  }
+
+  .nav-middle {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .stranger-text {
+    font-size: 16px;
+    letter-spacing: 1.5px;
+  }
+}
+
+
 .Navlinks a:hover {
   color: #e50914;
 }
